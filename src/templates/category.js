@@ -7,6 +7,7 @@ export const query = graphql`
   query Category($slug: String!) {
     articles: allStrapiArticle(
       filter: { status: { eq: "published" }, category: { slug: { eq: $slug } } }
+      sort: { order: DESC, fields: created_at }
     ) {
       edges {
         node {
